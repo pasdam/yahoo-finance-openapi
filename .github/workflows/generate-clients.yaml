@@ -1,0 +1,35 @@
+name: Generate clients
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'api.yml'
+
+jobs:
+  generate-clients:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Check version
+      run: bin/check_version_bump.sh
+
+    - name: Export API version as env variable
+      run: echo "API_VERSION=$(sh ./bin/api_version.sh)" >> "$GITHUB_ENV"
+
+    - name: Generate Go client
+      uses: kpurdon/openapi-generator-action@v0.0.3
+      with:
+        args: "generate -i ./api.yml -g go -o ./gen/go/yf --additional-properties=packageName=yf --additional-properties=packageVersion=${{ env.API_VERSION }} --additional-properties=isGoSubmodule=true --additional-properties=enumClassPrefix=true --git-repo-id ${{ github.event.repository.name }}/gen/go --git-user-id ${{ github.repository_owner }}"
+    - name: Move go mod file to root directory
+      run: bin/move_go_mod.sh
+
+    - name: Push changes and tag the latest version
+      uses: EndBug/add-and-commit@v7
+      with:
+        add: './gen/'
+        message: "Generate clients for version "
+        tag: v${{ env.API_VERSION }}
