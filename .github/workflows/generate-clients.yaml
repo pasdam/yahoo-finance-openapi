@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'api.yml'
+  workflow_dispatch:
 
 jobs:
   generate-clients:
