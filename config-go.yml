@@ -1,0 +1,4 @@
+
+packageName: yf
+isGoSubmodule: true
+enumClassPrefix: true
