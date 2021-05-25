@@ -16,7 +16,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"strings"
 )
 
 // Linger please
@@ -24,95 +23,91 @@ var (
 	_ _context.Context
 )
 
-// ChartApiService ChartApi service
-type ChartApiService service
+// SparkApiService SparkApi service
+type SparkApiService service
 
-type ApiGetChartRequest struct {
+type ApiSparkRequest struct {
 	ctx _context.Context
-	ApiService *ChartApiService
-	symbol string
+	ApiService *SparkApiService
 	interval *Interval
 	range_ *Range
-	region *string
-	includePrePost *bool
+	symbols *string
 	lang *string
-	useYfid *bool
+	includePrePost *bool
+	includeTimestamps *bool
+	indicators *string
 	corsDomain *string
-	tsrc *string
 }
 
-func (r ApiGetChartRequest) Interval(interval Interval) ApiGetChartRequest {
+func (r ApiSparkRequest) Interval(interval Interval) ApiSparkRequest {
 	r.interval = &interval
 	return r
 }
-func (r ApiGetChartRequest) Range_(range_ Range) ApiGetChartRequest {
+func (r ApiSparkRequest) Range_(range_ Range) ApiSparkRequest {
 	r.range_ = &range_
 	return r
 }
-func (r ApiGetChartRequest) Region(region string) ApiGetChartRequest {
-	r.region = &region
+func (r ApiSparkRequest) Symbols(symbols string) ApiSparkRequest {
+	r.symbols = &symbols
 	return r
 }
-func (r ApiGetChartRequest) IncludePrePost(includePrePost bool) ApiGetChartRequest {
-	r.includePrePost = &includePrePost
-	return r
-}
-func (r ApiGetChartRequest) Lang(lang string) ApiGetChartRequest {
+func (r ApiSparkRequest) Lang(lang string) ApiSparkRequest {
 	r.lang = &lang
 	return r
 }
-func (r ApiGetChartRequest) UseYfid(useYfid bool) ApiGetChartRequest {
-	r.useYfid = &useYfid
+func (r ApiSparkRequest) IncludePrePost(includePrePost bool) ApiSparkRequest {
+	r.includePrePost = &includePrePost
 	return r
 }
-func (r ApiGetChartRequest) CorsDomain(corsDomain string) ApiGetChartRequest {
+func (r ApiSparkRequest) IncludeTimestamps(includeTimestamps bool) ApiSparkRequest {
+	r.includeTimestamps = &includeTimestamps
+	return r
+}
+func (r ApiSparkRequest) Indicators(indicators string) ApiSparkRequest {
+	r.indicators = &indicators
+	return r
+}
+func (r ApiSparkRequest) CorsDomain(corsDomain string) ApiSparkRequest {
 	r.corsDomain = &corsDomain
 	return r
 }
-func (r ApiGetChartRequest) Tsrc(tsrc string) ApiGetChartRequest {
-	r.tsrc = &tsrc
-	return r
-}
 
-func (r ApiGetChartRequest) Execute() (ChartResponse, *_nethttp.Response, error) {
-	return r.ApiService.GetChartExecute(r)
+func (r ApiSparkRequest) Execute() (QuoteResponse, *_nethttp.Response, error) {
+	return r.ApiService.SparkExecute(r)
 }
 
 /*
- * GetChart Method for GetChart
+ * Spark Method for Spark
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param symbol
- * @return ApiGetChartRequest
+ * @return ApiSparkRequest
  */
-func (a *ChartApiService) GetChart(ctx _context.Context, symbol string) ApiGetChartRequest {
-	return ApiGetChartRequest{
+func (a *SparkApiService) Spark(ctx _context.Context) ApiSparkRequest {
+	return ApiSparkRequest{
 		ApiService: a,
 		ctx: ctx,
-		symbol: symbol,
 	}
 }
 
 /*
  * Execute executes the request
- * @return ChartResponse
+ * @return QuoteResponse
  */
-func (a *ChartApiService) GetChartExecute(r ApiGetChartRequest) (ChartResponse, *_nethttp.Response, error) {
+func (a *SparkApiService) SparkExecute(r ApiSparkRequest) (QuoteResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ChartResponse
+		localVarReturnValue  QuoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChartApiService.GetChart")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SparkApiService.Spark")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v8/finance/chart/{symbol}"
-	localVarPath = strings.Replace(localVarPath, "{"+"symbol"+"}", _neturl.PathEscape(parameterToString(r.symbol, "")), -1)
+	localVarPath := localBasePath + "/v7/finance/spark"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -123,27 +118,28 @@ func (a *ChartApiService) GetChartExecute(r ApiGetChartRequest) (ChartResponse, 
 	if r.range_ == nil {
 		return localVarReturnValue, nil, reportError("range_ is required and must be specified")
 	}
+	if r.symbols == nil {
+		return localVarReturnValue, nil, reportError("symbols is required and must be specified")
+	}
 
-	if r.region != nil {
-		localVarQueryParams.Add("region", parameterToString(*r.region, ""))
+	localVarQueryParams.Add("interval", parameterToString(*r.interval, ""))
+	localVarQueryParams.Add("range", parameterToString(*r.range_, ""))
+	if r.lang != nil {
+		localVarQueryParams.Add("lang", parameterToString(*r.lang, ""))
 	}
 	if r.includePrePost != nil {
 		localVarQueryParams.Add("includePrePost", parameterToString(*r.includePrePost, ""))
 	}
-	if r.lang != nil {
-		localVarQueryParams.Add("lang", parameterToString(*r.lang, ""))
+	if r.includeTimestamps != nil {
+		localVarQueryParams.Add("includeTimestamps", parameterToString(*r.includeTimestamps, ""))
 	}
-	localVarQueryParams.Add("interval", parameterToString(*r.interval, ""))
-	if r.useYfid != nil {
-		localVarQueryParams.Add("useYfid", parameterToString(*r.useYfid, ""))
+	if r.indicators != nil {
+		localVarQueryParams.Add("indicators", parameterToString(*r.indicators, ""))
 	}
-	localVarQueryParams.Add("range", parameterToString(*r.range_, ""))
 	if r.corsDomain != nil {
 		localVarQueryParams.Add("corsDomain", parameterToString(*r.corsDomain, ""))
 	}
-	if r.tsrc != nil {
-		localVarQueryParams.Add(".tsrc", parameterToString(*r.tsrc, ""))
-	}
+	localVarQueryParams.Add("symbols", parameterToString(*r.symbols, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

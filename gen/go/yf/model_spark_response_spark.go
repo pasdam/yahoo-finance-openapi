@@ -14,33 +14,33 @@ import (
 	"encoding/json"
 )
 
-// QuoteResponse struct for QuoteResponse
-type QuoteResponse struct {
-	Result *[]QuoteResult `json:"result,omitempty"`
+// SparkResponseSpark struct for SparkResponseSpark
+type SparkResponseSpark struct {
+	Result *[]SparkResponseSparkResult `json:"result,omitempty"`
 	Error *string `json:"error,omitempty"`
 }
 
-// NewQuoteResponse instantiates a new QuoteResponse object
+// NewSparkResponseSpark instantiates a new SparkResponseSpark object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewQuoteResponse() *QuoteResponse {
-	this := QuoteResponse{}
+func NewSparkResponseSpark() *SparkResponseSpark {
+	this := SparkResponseSpark{}
 	return &this
 }
 
-// NewQuoteResponseWithDefaults instantiates a new QuoteResponse object
+// NewSparkResponseSparkWithDefaults instantiates a new SparkResponseSpark object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewQuoteResponseWithDefaults() *QuoteResponse {
-	this := QuoteResponse{}
+func NewSparkResponseSparkWithDefaults() *SparkResponseSpark {
+	this := SparkResponseSpark{}
 	return &this
 }
 
 // GetResult returns the Result field value if set, zero value otherwise.
-func (o *QuoteResponse) GetResult() []QuoteResult {
+func (o *SparkResponseSpark) GetResult() []SparkResponseSparkResult {
 	if o == nil || o.Result == nil {
-		var ret []QuoteResult
+		var ret []SparkResponseSparkResult
 		return ret
 	}
 	return *o.Result
@@ -48,7 +48,7 @@ func (o *QuoteResponse) GetResult() []QuoteResult {
 
 // GetResultOk returns a tuple with the Result field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *QuoteResponse) GetResultOk() (*[]QuoteResult, bool) {
+func (o *SparkResponseSpark) GetResultOk() (*[]SparkResponseSparkResult, bool) {
 	if o == nil || o.Result == nil {
 		return nil, false
 	}
@@ -56,7 +56,7 @@ func (o *QuoteResponse) GetResultOk() (*[]QuoteResult, bool) {
 }
 
 // HasResult returns a boolean if a field has been set.
-func (o *QuoteResponse) HasResult() bool {
+func (o *SparkResponseSpark) HasResult() bool {
 	if o != nil && o.Result != nil {
 		return true
 	}
@@ -64,13 +64,13 @@ func (o *QuoteResponse) HasResult() bool {
 	return false
 }
 
-// SetResult gets a reference to the given []QuoteResult and assigns it to the Result field.
-func (o *QuoteResponse) SetResult(v []QuoteResult) {
+// SetResult gets a reference to the given []SparkResponseSparkResult and assigns it to the Result field.
+func (o *SparkResponseSpark) SetResult(v []SparkResponseSparkResult) {
 	o.Result = &v
 }
 
 // GetError returns the Error field value if set, zero value otherwise.
-func (o *QuoteResponse) GetError() string {
+func (o *SparkResponseSpark) GetError() string {
 	if o == nil || o.Error == nil {
 		var ret string
 		return ret
@@ -80,7 +80,7 @@ func (o *QuoteResponse) GetError() string {
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *QuoteResponse) GetErrorOk() (*string, bool) {
+func (o *SparkResponseSpark) GetErrorOk() (*string, bool) {
 	if o == nil || o.Error == nil {
 		return nil, false
 	}
@@ -88,7 +88,7 @@ func (o *QuoteResponse) GetErrorOk() (*string, bool) {
 }
 
 // HasError returns a boolean if a field has been set.
-func (o *QuoteResponse) HasError() bool {
+func (o *SparkResponseSpark) HasError() bool {
 	if o != nil && o.Error != nil {
 		return true
 	}
@@ -97,11 +97,11 @@ func (o *QuoteResponse) HasError() bool {
 }
 
 // SetError gets a reference to the given string and assigns it to the Error field.
-func (o *QuoteResponse) SetError(v string) {
+func (o *SparkResponseSpark) SetError(v string) {
 	o.Error = &v
 }
 
-func (o QuoteResponse) MarshalJSON() ([]byte, error) {
+func (o SparkResponseSpark) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Result != nil {
 		toSerialize["result"] = o.Result
@@ -112,38 +112,38 @@ func (o QuoteResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableQuoteResponse struct {
-	value *QuoteResponse
+type NullableSparkResponseSpark struct {
+	value *SparkResponseSpark
 	isSet bool
 }
 
-func (v NullableQuoteResponse) Get() *QuoteResponse {
+func (v NullableSparkResponseSpark) Get() *SparkResponseSpark {
 	return v.value
 }
 
-func (v *NullableQuoteResponse) Set(val *QuoteResponse) {
+func (v *NullableSparkResponseSpark) Set(val *SparkResponseSpark) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableQuoteResponse) IsSet() bool {
+func (v NullableSparkResponseSpark) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableQuoteResponse) Unset() {
+func (v *NullableSparkResponseSpark) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableQuoteResponse(val *QuoteResponse) *NullableQuoteResponse {
-	return &NullableQuoteResponse{value: val, isSet: true}
+func NewNullableSparkResponseSpark(val *SparkResponseSpark) *NullableSparkResponseSpark {
+	return &NullableSparkResponseSpark{value: val, isSet: true}
 }
 
-func (v NullableQuoteResponse) MarshalJSON() ([]byte, error) {
+func (v NullableSparkResponseSpark) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableQuoteResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableSparkResponseSpark) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
