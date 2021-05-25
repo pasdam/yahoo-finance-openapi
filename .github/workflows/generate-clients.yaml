@@ -32,5 +32,5 @@ jobs:
       uses: EndBug/add-and-commit@v7.2.1
       with:
         add: './gen/'
-        message: "Generate clients for version "
+        message: "Generate clients for version ${{ env.API_VERSION }}"
         tag: v${{ env.API_VERSION }}
