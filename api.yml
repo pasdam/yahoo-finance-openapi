@@ -3,7 +3,7 @@ info:
   description: Yahoo Finance API specification
   contact:
     url: 'https://help.yahoo.com/kb/finance-for-web'
-  version: 1.0.1
+  version: 1.0.2
   title: Yahoo Finance
   termsOfService: 'https://www.verizonmedia.com/policies/us/en/verizonmedia/terms/otos/index.html'
   license:
@@ -14,18 +14,16 @@ servers:
 tags:
   - name: chart
   - name: quote
+  - name: spark
 paths:
   '/v8/finance/chart/{symbol}':
     get:
       operationId: GetChart
       tags:
         - chart
-      summary: Returns a list of users.
-      description: Optional extended description in CommonMark or HTML.
       parameters:
         - name: symbol
           in: path
-          description: Pet object that needs to be added to the store
           required: true
           schema:
             type: string
@@ -79,14 +77,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/chart'
+                $ref: '#/components/schemas/ChartResponse'
   /v7/finance/quote:
     get:
       operationId: GetQuote
       tags:
         - quote
-      summary: Returns a list of users.
-      description: Optional extended description in CommonMark or HTML.
+      summary: Returns quotes for the specified symbols
+      description: Returns quotes for the specified symbols
       parameters:
         - name: formatted
           in: query
@@ -111,6 +109,60 @@ paths:
             type: boolean
             default: false
         - name: fields
+          in: query
+          schema:
+            type: string
+        - name: corsDomain
+          in: query
+          schema:
+            type: string
+            enum:
+              - finance.yahoo.com
+        - name: symbols
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+  /v7/finance/spark:
+    get:
+      operationId: Spark
+      tags:
+        - spark
+      parameters:
+        - name: interval
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Interval'
+        - name: range
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Range'
+        - name: lang
+          in: query
+          schema:
+            type: string
+            enum:
+              - en-US
+        - name: includePrePost
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - name: includeTimestamps
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - name: indicators
           in: query
           schema:
             type: string
@@ -398,194 +450,342 @@ components:
         error:
           type: string
           format: nullable
-    chart:
+    ChartResponse:
       type: object
       properties:
-        result:
-          type: array
-          items:
-            type: object
-            properties:
-              meta:
+        chart:
+          type: object
+          properties:
+            result:
+              type: array
+              items:
                 type: object
                 properties:
-                  currency:
-                    type: string
-                    example: USD
-                  symbol:
-                    type: string
-                    example: EURUSD=X
-                  exchangeName:
-                    type: string
-                    example: CCY
-                  instrumentType:
-                    type: string
-                    example: CURRENCY
-                  firstTradeDate:
-                    type: integer
-                    format: int32
-                    example: 1070236800
-                  regularMarketTime:
-                    type: integer
-                    format: int32
-                    example: 1617398979
-                  gmtoffset:
-                    type: integer
-                    format: int32
-                    example: 3600
-                  timezone:
-                    type: string
-                    example: BST
-                  exchangeTimezoneName:
-                    type: string
-                    example: Europe/London
-                  regularMarketPrice:
-                    type: number
-                    example: 1.1769
-                  chartPreviousClose:
-                    type: number
-                    example: 1.178
-                  previousClose:
-                    type: number
-                    example: 1.178
-                  scale:
-                    type: integer
-                    format: int32
-                    example: 4
-                  priceHint:
-                    type: integer
-                    format: int32
-                    example: 4
-                  currentTradingPeriod:
+                  meta:
                     type: object
                     properties:
-                      pre:
+                      currency:
+                        type: string
+                        example: USD
+                      symbol:
+                        type: string
+                        example: EURUSD=X
+                      exchangeName:
+                        type: string
+                        example: CCY
+                      instrumentType:
+                        type: string
+                        example: CURRENCY
+                      firstTradeDate:
+                        type: integer
+                        format: int32
+                        example: 1070236800
+                      regularMarketTime:
+                        type: integer
+                        format: int32
+                        example: 1617398979
+                      gmtoffset:
+                        type: integer
+                        format: int32
+                        example: 3600
+                      timezone:
+                        type: string
+                        example: BST
+                      exchangeTimezoneName:
+                        type: string
+                        example: Europe/London
+                      regularMarketPrice:
+                        type: number
+                        example: 1.1769
+                      chartPreviousClose:
+                        type: number
+                        example: 1.178
+                      previousClose:
+                        type: number
+                        example: 1.178
+                      scale:
+                        type: integer
+                        format: int32
+                        example: 4
+                      priceHint:
+                        type: integer
+                        format: int32
+                        example: 4
+                      currentTradingPeriod:
                         type: object
                         properties:
-                          timezone:
-                            type: string
-                            example: BST
-                          start:
-                            type: integer
-                            format: int32
-                            example: 1617318000
-                          end:
-                            type: integer
-                            format: int32
-                            example: 1617318000
-                          gmtoffset:
-                            type: integer
-                            format: int32
-                            example: 3600
-                      regular:
-                        type: object
-                        properties:
-                          timezone:
-                            type: string
-                            example: BST
-                          start:
-                            type: integer
-                            format: int32
-                            example: 1617318000
-                          end:
-                            type: integer
-                            format: int32
-                            example: 1617404340
-                          gmtoffset:
-                            type: integer
-                            format: int32
-                            example: 3600
-                      post:
-                        type: object
-                        properties:
-                          timezone:
-                            type: string
-                            example: BST
-                          start:
-                            type: integer
-                            format: int32
-                            example: 1617404340
-                          end:
-                            type: integer
-                            format: int32
-                            example: 1617404340
-                          gmtoffset:
-                            type: integer
-                            format: int32
-                            example: 3600
-                  tradingPeriods:
+                          pre:
+                            type: object
+                            properties:
+                              timezone:
+                                type: string
+                                example: BST
+                              start:
+                                type: integer
+                                format: int32
+                                example: 1617318000
+                              end:
+                                type: integer
+                                format: int32
+                                example: 1617318000
+                              gmtoffset:
+                                type: integer
+                                format: int32
+                                example: 3600
+                          regular:
+                            type: object
+                            properties:
+                              timezone:
+                                type: string
+                                example: BST
+                              start:
+                                type: integer
+                                format: int32
+                                example: 1617318000
+                              end:
+                                type: integer
+                                format: int32
+                                example: 1617404340
+                              gmtoffset:
+                                type: integer
+                                format: int32
+                                example: 3600
+                          post:
+                            type: object
+                            properties:
+                              timezone:
+                                type: string
+                                example: BST
+                              start:
+                                type: integer
+                                format: int32
+                                example: 1617404340
+                              end:
+                                type: integer
+                                format: int32
+                                example: 1617404340
+                              gmtoffset:
+                                type: integer
+                                format: int32
+                                example: 3600
+                      tradingPeriods:
+                        type: array
+                        items:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              timezone:
+                                type: string
+                                example: BST
+                              start:
+                                type: integer
+                                format: int32
+                                example: 1617318000
+                              end:
+                                type: integer
+                                format: int32
+                                example: 1617404340
+                              gmtoffset:
+                                type: integer
+                                format: int32
+                                example: 3600
+                      dataGranularity:
+                        type: string
+                        example: 2m
+                      range:
+                        type: string
+                        example: 1d
+                      validRanges:
+                        type: array
+                        items:
+                          type: string
+                          example: 1d
+                  timestamp:
                     type: array
                     items:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          timezone:
-                            type: string
-                            example: BST
-                          start:
-                            type: integer
-                            format: int32
-                            example: 1617318000
-                          end:
-                            type: integer
-                            format: int32
-                            example: 1617404340
-                          gmtoffset:
-                            type: integer
-                            format: int32
-                            example: 3600
-                  dataGranularity:
-                    type: string
-                    example: 2m
-                  range:
-                    type: string
-                    example: 1d
-                  validRanges:
-                    type: array
-                    items:
-                      type: string
-                      example: 1d
-              timestamp:
-                type: array
-                items:
-                  type: integer
-                  format: int32
-                  example: 1617318000
-              indicators:
+                      type: integer
+                      format: int32
+                      example: 1617318000
+                  indicators:
+                    type: object
+                    properties:
+                      quote:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            high:
+                              type: array
+                              items:
+                                type: number
+                                example: 1.1784114837646484
+                            close:
+                              type: array
+                              items:
+                                type: number
+                                example: 1.1782727241516113
+                            volume:
+                              type: array
+                              items:
+                                type: integer
+                                format: int32
+                                example: 0
+                            low:
+                              type: array
+                              items:
+                                type: number
+                                example: 1.1782727241516113
+                            open:
+                              type: array
+                              items:
+                                type: number
+                                example: 1.1784114837646484
+            error:
+              type: string
+              format: nullable
+    SparkResponse:
+      type: object
+      properties:
+        spark:
+          type: object
+          properties:
+            result:
+              type: array
+              items:
                 type: object
                 properties:
-                  quote:
+                  symbol:
+                    type: string
+                  response:
                     type: array
                     items:
                       type: object
                       properties:
-                        high:
-                          type: array
-                          items:
-                            type: number
-                            example: 1.1784114837646484
-                        close:
-                          type: array
-                          items:
-                            type: number
-                            example: 1.1782727241516113
-                        volume:
+                        meta:
+                          type: object
+                          properties:
+                            currency:
+                              type: string
+                            symbol:
+                              type: string
+                            exchangeName:
+                              type: string
+                            instrumentType:
+                              type: string
+                            firstTradeDate:
+                              type: integer
+                              format: int32
+                            regularMarketTime:
+                              type: integer
+                              format: int32
+                            gmtoffset:
+                              type: integer
+                              format: int32
+                            timezone:
+                              type: string
+                            exchangeTimezoneName:
+                              type: string
+                            regularMarketPrice:
+                              type: number
+                            chartPreviousClose:
+                              type: number
+                            previousClose:
+                              type: number
+                            scale:
+                              type: integer
+                              format: int32
+                            priceHint:
+                              type: integer
+                              format: int32
+                            currentTradingPeriod:
+                              type: object
+                              properties:
+                                pre:
+                                  type: object
+                                  properties:
+                                    timezone:
+                                      type: string
+                                    end:
+                                      type: integer
+                                      format: int32
+                                    start:
+                                      type: integer
+                                      format: int32
+                                    gmtoffset:
+                                      type: integer
+                                      format: int32
+                                regular:
+                                  type: object
+                                  properties:
+                                    timezone:
+                                      type: string
+                                    end:
+                                      type: integer
+                                      format: int32
+                                    start:
+                                      type: integer
+                                      format: int32
+                                    gmtoffset:
+                                      type: integer
+                                      format: int32
+                                post:
+                                  type: object
+                                  properties:
+                                    timezone:
+                                      type: string
+                                    end:
+                                      type: integer
+                                      format: int32
+                                    start:
+                                      type: integer
+                                      format: int32
+                                    gmtoffset:
+                                      type: integer
+                                      format: int32
+                            tradingPeriods:
+                              type: array
+                              items:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    timezone:
+                                      type: string
+                                    end:
+                                      type: integer
+                                      format: int32
+                                    start:
+                                      type: integer
+                                      format: int32
+                                    gmtoffset:
+                                      type: integer
+                                      format: int32
+                            dataGranularity:
+                              type: string
+                            range:
+                              type: string
+                            validRanges:
+                              type: array
+                              items:
+                                type: string
+                        timestamp:
                           type: array
                           items:
                             type: integer
                             format: int32
-                            example: 0
-                        low:
-                          type: array
-                          items:
-                            type: number
-                            example: 1.1782727241516113
-                        open:
-                          type: array
-                          items:
-                            type: number
-                            example: 1.1784114837646484
-        error:
-          type: string
-          format: nullable
+                        indicators:
+                          type: object
+                          properties:
+                            quote:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  close:
+                                    type: array
+                                    items:
+                                      type: number
+            error:
+              type: string
+              format: nullable
