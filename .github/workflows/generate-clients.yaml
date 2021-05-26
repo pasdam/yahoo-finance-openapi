@@ -26,9 +26,6 @@ jobs:
       with:
         args: "generate -i ./api.yml -g go -o ./gen/go/yf -c ./config-go.yml --additional-properties=packageVersion=${{ env.API_VERSION }} --git-repo-id ${{ github.event.repository.name }}/gen/go --git-user-id ${{ github.repository_owner }}"
 
-    - name: Move go mod file to root directory
-      run: bin/move_go_mod.sh
-
     - name: Push changes and tag the latest version
       uses: EndBug/add-and-commit@v7.2.1
       with:
