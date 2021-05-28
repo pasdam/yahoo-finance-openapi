@@ -21,6 +21,9 @@ jobs:
     - name: Export API version as env variable
       run: echo "API_VERSION=$(sh ./bin/api_version.sh)" >> "$GITHUB_ENV"
 
+    - name: Clean generated files
+      run: rm -rf ./gen/*
+
     - name: Generate Go client
       uses: kpurdon/openapi-generator-action@v0.0.3
       with:
