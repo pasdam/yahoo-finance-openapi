@@ -29,8 +29,8 @@ import (
 func main() {
     symbol := "symbol_example" // string | 
     interval := openapiclient.Interval("1m") // Interval | 
-    period1 := int32(56) // int32 | 
-    period2 := int32(56) // int32 | 
+    period1 := int64(789) // int64 | 
+    period2 := int64(789) // int64 | 
     region := "region_example" // string |  (optional)
     includePrePost := true // bool |  (optional) (default to false)
     lang := "lang_example" // string |  (optional)
@@ -67,8 +67,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **interval** | [**Interval**](Interval.md) |  | 
- **period1** | **int32** |  | 
- **period2** | **int32** |  | 
+ **period1** | **int64** |  | 
+ **period2** | **int64** |  | 
  **region** | **string** |  | 
  **includePrePost** | **bool** |  | [default to false]
  **lang** | **string** |  | 
