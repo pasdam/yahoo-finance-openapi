@@ -3,7 +3,7 @@ info:
   description: Yahoo Finance API specification
   contact:
     url: 'https://help.yahoo.com/kb/finance-for-web'
-  version: 1.0.2
+  version: 1.0.3
   title: Yahoo Finance
   termsOfService: 'https://www.verizonmedia.com/policies/us/en/verizonmedia/terms/otos/index.html'
   license:
@@ -54,11 +54,16 @@ paths:
           schema:
             type: boolean
             default: true
-        - name: range
+        - name: period1
           in: query
           required: true
           schema:
-            $ref: '#/components/schemas/Range'
+            type: integer
+        - name: period2
+          in: query
+          required: true
+          schema:
+            type: integer
         - name: corsDomain
           in: query
           schema:
