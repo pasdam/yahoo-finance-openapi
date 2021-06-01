@@ -3,7 +3,7 @@ info:
   description: Yahoo Finance API specification
   contact:
     url: 'https://help.yahoo.com/kb/finance-for-web'
-  version: 1.0.4
+  version: 1.0.5
   title: Yahoo Finance
   termsOfService: 'https://www.verizonmedia.com/policies/us/en/verizonmedia/terms/otos/index.html'
   license:
@@ -193,6 +193,15 @@ paths:
                 $ref: '#/components/schemas/QuoteResponse'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: Unprocessable Entity
+        description:
+          type: string
+          example: 1m data not available for startTime=1618960073 and endTime=1622560073. Only 7 days worth of 1m granularity data are allowed to be fetched per request.
     Interval:
       type: string
       enum:
@@ -450,13 +459,15 @@ components:
     QuoteResponse:
       type: object
       properties:
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuoteResult'
-        error:
-          type: string
-          format: nullable
+        quoteResponse:
+          type: object
+          properties:
+            result:
+              type: array
+              items:
+                $ref: '#/components/schemas/QuoteResult'
+            error:
+              $ref: '#/components/schemas/Error'
     ChartResponse:
       type: object
       properties:
@@ -649,8 +660,7 @@ components:
                                 type: number
                                 example: 1.1784114837646484
             error:
-              type: string
-              format: nullable
+              $ref: '#/components/schemas/Error'
     SparkResponse:
       type: object
       properties:
@@ -794,5 +804,4 @@ components:
                                     items:
                                       type: number
             error:
-              type: string
-              format: nullable
+              $ref: '#/components/schemas/Error'
