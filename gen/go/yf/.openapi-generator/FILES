@@ -19,9 +19,11 @@ docs/ChartResponseChartMetaCurrentTradingPeriodPost.md
 docs/ChartResponseChartMetaCurrentTradingPeriodPre.md
 docs/ChartResponseChartMetaCurrentTradingPeriodRegular.md
 docs/ChartResponseChartResult.md
+docs/Error.md
 docs/Interval.md
 docs/QuoteApi.md
 docs/QuoteResponse.md
+docs/QuoteResponseQuoteResponse.md
 docs/QuoteResult.md
 docs/QuoteResultFiftyTwoWeekHighChange.md
 docs/QuoteResultFiftyTwoWeekHighChangePercent.md
@@ -62,8 +64,10 @@ model_chart_response_chart_meta_current_trading_period_post.go
 model_chart_response_chart_meta_current_trading_period_pre.go
 model_chart_response_chart_meta_current_trading_period_regular.go
 model_chart_response_chart_result.go
+model_error.go
 model_interval.go
 model_quote_response.go
+model_quote_response_quote_response.go
 model_quote_result.go
 model_quote_result_fifty_two_week_high_change.go
 model_quote_result_fifty_two_week_high_change_percent.go
