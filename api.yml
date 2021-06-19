@@ -3,7 +3,7 @@ info:
   description: Yahoo Finance API specification
   contact:
     url: 'https://help.yahoo.com/kb/finance-for-web'
-  version: 1.0.5
+  version: 1.0.6
   title: Yahoo Finance
   termsOfService: 'https://www.verizonmedia.com/policies/us/en/verizonmedia/terms/otos/index.html'
   license:
@@ -444,10 +444,10 @@ components:
           properties:
             raw:
               type: number
-              example: 3992.78
+              example: 3993.78
             fmt:
               type: string
-              example: '3992.78'
+              example: '3993.78'
         region:
           type: string
           example: US
