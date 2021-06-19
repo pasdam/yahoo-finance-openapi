@@ -34,6 +34,7 @@ docs/QuoteResultFiftyTwoWeekRange.md
 docs/QuoteResultRegularMarketChange.md
 docs/QuoteResultRegularMarketChangePercent.md
 docs/QuoteResultRegularMarketDayHigh.md
+docs/QuoteResultRegularMarketDayLow.md
 docs/QuoteResultRegularMarketDayRange.md
 docs/QuoteResultRegularMarketOpen.md
 docs/QuoteResultRegularMarketPreviousClose.md
@@ -78,6 +79,7 @@ model_quote_result_fifty_two_week_range.go
 model_quote_result_regular_market_change.go
 model_quote_result_regular_market_change_percent.go
 model_quote_result_regular_market_day_high.go
+model_quote_result_regular_market_day_low.go
 model_quote_result_regular_market_day_range.go
 model_quote_result_regular_market_open.go
 model_quote_result_regular_market_previous_close.go

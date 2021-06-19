@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 **PriceHint** | Pointer to **int32** |  | [optional] 
 **Exchange** | Pointer to **string** |  | [optional] 
 **SourceInterval** | Pointer to **int32** |  | [optional] 
-**RegularMarketDayLow** | Pointer to [**QuoteResultRegularMarketOpen**](QuoteResultRegularMarketOpen.md) |  | [optional] 
+**RegularMarketDayLow** | Pointer to [**QuoteResultRegularMarketDayLow**](QuoteResultRegularMarketDayLow.md) |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
 **ShortName** | Pointer to **string** |  | [optional] 
 **Triggerable** | Pointer to **bool** |  | [optional] 
@@ -940,20 +940,20 @@ HasSourceInterval returns a boolean if a field has been set.
 
 ### GetRegularMarketDayLow
 
-`func (o *QuoteResult) GetRegularMarketDayLow() QuoteResultRegularMarketOpen`
+`func (o *QuoteResult) GetRegularMarketDayLow() QuoteResultRegularMarketDayLow`
 
 GetRegularMarketDayLow returns the RegularMarketDayLow field if non-nil, zero value otherwise.
 
 ### GetRegularMarketDayLowOk
 
-`func (o *QuoteResult) GetRegularMarketDayLowOk() (*QuoteResultRegularMarketOpen, bool)`
+`func (o *QuoteResult) GetRegularMarketDayLowOk() (*QuoteResultRegularMarketDayLow, bool)`
 
 GetRegularMarketDayLowOk returns a tuple with the RegularMarketDayLow field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRegularMarketDayLow
 
-`func (o *QuoteResult) SetRegularMarketDayLow(v QuoteResultRegularMarketOpen)`
+`func (o *QuoteResult) SetRegularMarketDayLow(v QuoteResultRegularMarketDayLow)`
 
 SetRegularMarketDayLow sets RegularMarketDayLow field to given value.
 

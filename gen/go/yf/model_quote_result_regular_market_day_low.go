@@ -14,31 +14,31 @@ import (
 	"encoding/json"
 )
 
-// QuoteResultRegularMarketOpen struct for QuoteResultRegularMarketOpen
-type QuoteResultRegularMarketOpen struct {
+// QuoteResultRegularMarketDayLow struct for QuoteResultRegularMarketDayLow
+type QuoteResultRegularMarketDayLow struct {
 	Raw *float32 `json:"raw,omitempty"`
 	Fmt *string `json:"fmt,omitempty"`
 }
 
-// NewQuoteResultRegularMarketOpen instantiates a new QuoteResultRegularMarketOpen object
+// NewQuoteResultRegularMarketDayLow instantiates a new QuoteResultRegularMarketDayLow object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewQuoteResultRegularMarketOpen() *QuoteResultRegularMarketOpen {
-	this := QuoteResultRegularMarketOpen{}
+func NewQuoteResultRegularMarketDayLow() *QuoteResultRegularMarketDayLow {
+	this := QuoteResultRegularMarketDayLow{}
 	return &this
 }
 
-// NewQuoteResultRegularMarketOpenWithDefaults instantiates a new QuoteResultRegularMarketOpen object
+// NewQuoteResultRegularMarketDayLowWithDefaults instantiates a new QuoteResultRegularMarketDayLow object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewQuoteResultRegularMarketOpenWithDefaults() *QuoteResultRegularMarketOpen {
-	this := QuoteResultRegularMarketOpen{}
+func NewQuoteResultRegularMarketDayLowWithDefaults() *QuoteResultRegularMarketDayLow {
+	this := QuoteResultRegularMarketDayLow{}
 	return &this
 }
 
 // GetRaw returns the Raw field value if set, zero value otherwise.
-func (o *QuoteResultRegularMarketOpen) GetRaw() float32 {
+func (o *QuoteResultRegularMarketDayLow) GetRaw() float32 {
 	if o == nil || o.Raw == nil {
 		var ret float32
 		return ret
@@ -48,7 +48,7 @@ func (o *QuoteResultRegularMarketOpen) GetRaw() float32 {
 
 // GetRawOk returns a tuple with the Raw field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *QuoteResultRegularMarketOpen) GetRawOk() (*float32, bool) {
+func (o *QuoteResultRegularMarketDayLow) GetRawOk() (*float32, bool) {
 	if o == nil || o.Raw == nil {
 		return nil, false
 	}
@@ -56,7 +56,7 @@ func (o *QuoteResultRegularMarketOpen) GetRawOk() (*float32, bool) {
 }
 
 // HasRaw returns a boolean if a field has been set.
-func (o *QuoteResultRegularMarketOpen) HasRaw() bool {
+func (o *QuoteResultRegularMarketDayLow) HasRaw() bool {
 	if o != nil && o.Raw != nil {
 		return true
 	}
@@ -65,12 +65,12 @@ func (o *QuoteResultRegularMarketOpen) HasRaw() bool {
 }
 
 // SetRaw gets a reference to the given float32 and assigns it to the Raw field.
-func (o *QuoteResultRegularMarketOpen) SetRaw(v float32) {
+func (o *QuoteResultRegularMarketDayLow) SetRaw(v float32) {
 	o.Raw = &v
 }
 
 // GetFmt returns the Fmt field value if set, zero value otherwise.
-func (o *QuoteResultRegularMarketOpen) GetFmt() string {
+func (o *QuoteResultRegularMarketDayLow) GetFmt() string {
 	if o == nil || o.Fmt == nil {
 		var ret string
 		return ret
@@ -80,7 +80,7 @@ func (o *QuoteResultRegularMarketOpen) GetFmt() string {
 
 // GetFmtOk returns a tuple with the Fmt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *QuoteResultRegularMarketOpen) GetFmtOk() (*string, bool) {
+func (o *QuoteResultRegularMarketDayLow) GetFmtOk() (*string, bool) {
 	if o == nil || o.Fmt == nil {
 		return nil, false
 	}
@@ -88,7 +88,7 @@ func (o *QuoteResultRegularMarketOpen) GetFmtOk() (*string, bool) {
 }
 
 // HasFmt returns a boolean if a field has been set.
-func (o *QuoteResultRegularMarketOpen) HasFmt() bool {
+func (o *QuoteResultRegularMarketDayLow) HasFmt() bool {
 	if o != nil && o.Fmt != nil {
 		return true
 	}
@@ -97,11 +97,11 @@ func (o *QuoteResultRegularMarketOpen) HasFmt() bool {
 }
 
 // SetFmt gets a reference to the given string and assigns it to the Fmt field.
-func (o *QuoteResultRegularMarketOpen) SetFmt(v string) {
+func (o *QuoteResultRegularMarketDayLow) SetFmt(v string) {
 	o.Fmt = &v
 }
 
-func (o QuoteResultRegularMarketOpen) MarshalJSON() ([]byte, error) {
+func (o QuoteResultRegularMarketDayLow) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Raw != nil {
 		toSerialize["raw"] = o.Raw
@@ -112,38 +112,38 @@ func (o QuoteResultRegularMarketOpen) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableQuoteResultRegularMarketOpen struct {
-	value *QuoteResultRegularMarketOpen
+type NullableQuoteResultRegularMarketDayLow struct {
+	value *QuoteResultRegularMarketDayLow
 	isSet bool
 }
 
-func (v NullableQuoteResultRegularMarketOpen) Get() *QuoteResultRegularMarketOpen {
+func (v NullableQuoteResultRegularMarketDayLow) Get() *QuoteResultRegularMarketDayLow {
 	return v.value
 }
 
-func (v *NullableQuoteResultRegularMarketOpen) Set(val *QuoteResultRegularMarketOpen) {
+func (v *NullableQuoteResultRegularMarketDayLow) Set(val *QuoteResultRegularMarketDayLow) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableQuoteResultRegularMarketOpen) IsSet() bool {
+func (v NullableQuoteResultRegularMarketDayLow) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableQuoteResultRegularMarketOpen) Unset() {
+func (v *NullableQuoteResultRegularMarketDayLow) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableQuoteResultRegularMarketOpen(val *QuoteResultRegularMarketOpen) *NullableQuoteResultRegularMarketOpen {
-	return &NullableQuoteResultRegularMarketOpen{value: val, isSet: true}
+func NewNullableQuoteResultRegularMarketDayLow(val *QuoteResultRegularMarketDayLow) *NullableQuoteResultRegularMarketDayLow {
+	return &NullableQuoteResultRegularMarketDayLow{value: val, isSet: true}
 }
 
-func (v NullableQuoteResultRegularMarketOpen) MarshalJSON() ([]byte, error) {
+func (v NullableQuoteResultRegularMarketDayLow) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableQuoteResultRegularMarketOpen) UnmarshalJSON(src []byte) error {
+func (v *NullableQuoteResultRegularMarketDayLow) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
