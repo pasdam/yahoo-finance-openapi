@@ -8,7 +8,7 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.verizonmedia.com/policies/us/en/verizonmedia/terms/otos/index.html
   title: Yahoo Finance
-  version: 1.0.6
+  version: 1.0.7
 servers:
 - url: https://query1.finance.yahoo.com
 tags:
@@ -121,7 +121,7 @@ paths:
         name: formatted
         required: false
         schema:
-          default: true
+          default: false
           type: boolean
         style: form
       - explode: true

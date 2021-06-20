@@ -30,7 +30,7 @@ import (
 
 func main() {
     symbols := "symbols_example" // string | 
-    formatted := true // bool |  (optional) (default to true)
+    formatted := true // bool |  (optional) (default to false)
     region := "region_example" // string |  (optional)
     lang := "lang_example" // string |  (optional)
     includePrePost := true // bool |  (optional) (default to false)
@@ -61,7 +61,7 @@ Other parameters are passed through a pointer to a apiGetQuoteRequest struct via
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbols** | **string** |  | 
- **formatted** | **bool** |  | [default to true]
+ **formatted** | **bool** |  | [default to false]
  **region** | **string** |  | 
  **lang** | **string** |  | 
  **includePrePost** | **bool** |  | [default to false]
