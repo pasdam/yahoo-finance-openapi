@@ -1,0 +1,228 @@
+{
+  "quoteResponse": {
+    "result": [
+      {
+        "symbol": "TSLA",
+        "twoHundredDayAverageChangePercent": {
+          "raw": -0.10142383,
+          "fmt": "-10.14%"
+        },
+        "averageAnalystRating": "2.8 - Hold",
+        "fiftyTwoWeekLowChangePercent": {
+          "raw": 2.3255618,
+          "fmt": "232.56%"
+        },
+        "language": "en-US",
+        "regularMarketDayRange": {
+          "raw": "611.8 - 628.3472",
+          "fmt": "611.80 - 628.35"
+        },
+        "earningsTimestampEnd": {
+          "raw": 1627300800,
+          "fmt": "2021-07-26",
+          "longFmt": "2021-07-26T08:00"
+        },
+        "epsForward": {
+          "raw": 6.23,
+          "fmt": "6.23"
+        },
+        "regularMarketDayHigh": {
+          "raw": 628.3472,
+          "fmt": "628.35"
+        },
+        "twoHundredDayAverageChange": {
+          "raw": -70.354065,
+          "fmt": "-70.35"
+        },
+        "twoHundredDayAverage": {
+          "raw": 693.66406,
+          "fmt": "693.66"
+        },
+        "askSize": {
+          "raw": 9,
+          "fmt": "9",
+          "longFmt": "9"
+        },
+        "bookValue": {
+          "raw": 23.901,
+          "fmt": "23.90"
+        },
+        "marketCap": {
+          "raw": 600453218304,
+          "fmt": "600.453B",
+          "longFmt": "600,453,218,304"
+        },
+        "fiftyTwoWeekHighChange": {
+          "raw": -277.09003,
+          "fmt": "-277.09"
+        },
+        "fiftyTwoWeekRange": {
+          "raw": "187.43 - 900.4",
+          "fmt": "187.43 - 900.40"
+        },
+        "fiftyDayAverageChange": {
+          "raw": 8.031433,
+          "fmt": "8.03"
+        },
+        "averageDailyVolume3Month": {
+          "raw": 30207242,
+          "fmt": "30.207M",
+          "longFmt": "30,207,242"
+        },
+        "firstTradeDateMilliseconds": 1277818200000,
+        "exchangeDataDelayedBy": 0,
+        "fiftyTwoWeekLow": {
+          "raw": 187.43,
+          "fmt": "187.43"
+        },
+        "market": "us_market",
+        "regularMarketVolume": {
+          "raw": 23853471,
+          "fmt": "23.853M",
+          "longFmt": "23,853,471"
+        },
+        "postMarketPrice": {
+          "raw": 620.97,
+          "fmt": "620.97"
+        },
+        "quoteSourceName": "Nasdaq Real Time Price",
+        "messageBoardId": "finmb_27444752",
+        "priceHint": 2,
+        "sourceInterval": 15,
+        "regularMarketDayLow": {
+          "raw": 611.8,
+          "fmt": "611.80"
+        },
+        "exchange": "NMS",
+        "shortName": "Tesla, Inc.",
+        "region": "US",
+        "fiftyDayAverageChangePercent": {
+          "raw": 0.013053329,
+          "fmt": "1.31%"
+        },
+        "fullExchangeName": "NasdaqGS",
+        "earningsTimestampStart": {
+          "raw": 1626778740,
+          "fmt": "2021-07-20",
+          "longFmt": "2021-07-20T06:59"
+        },
+        "financialCurrency": "USD",
+        "displayName": "Tesla",
+        "gmtOffSetMilliseconds": -14400000,
+        "regularMarketOpen": {
+          "raw": 613.37,
+          "fmt": "613.37"
+        },
+        "regularMarketTime": {
+          "raw": 1624046404,
+          "fmt": "4:00PM EDT"
+        },
+        "regularMarketChangePercent": {
+          "raw": 1.0882294,
+          "fmt": "1.09%"
+        },
+        "quoteType": "EQUITY",
+        "fiftyTwoWeekLowChange": {
+          "raw": 435.88,
+          "fmt": "435.88"
+        },
+        "averageDailyVolume10Day": {
+          "raw": 20533937,
+          "fmt": "20.534M",
+          "longFmt": "20,533,937"
+        },
+        "fiftyTwoWeekHighChangePercent": {
+          "raw": -0.30774102,
+          "fmt": "-30.77%"
+        },
+        "trailingPE": {
+          "raw": 624.5591,
+          "fmt": "624.56"
+        },
+        "tradeable": false,
+        "postMarketTime": {
+          "raw": 1624060797,
+          "fmt": "7:59PM EDT"
+        },
+        "currency": "USD",
+        "sharesOutstanding": {
+          "raw": 963329984,
+          "fmt": "963.33M",
+          "longFmt": "963,329,984"
+        },
+        "regularMarketPreviousClose": {
+          "raw": 616.6,
+          "fmt": "616.60"
+        },
+        "fiftyTwoWeekHigh": {
+          "raw": 900.4,
+          "fmt": "900.40"
+        },
+        "postMarketChangePercent": {
+          "raw": -0.375419,
+          "fmt": "-0.38%"
+        },
+        "exchangeTimezoneName": "America/New_York",
+        "regularMarketChange": {
+          "raw": 6.710022,
+          "fmt": "6.71"
+        },
+        "bidSize": {
+          "raw": 9,
+          "fmt": "9",
+          "longFmt": "9"
+        },
+        "priceEpsCurrentYear": {
+          "raw": 137.29295,
+          "fmt": "137.29"
+        },
+        "fiftyDayAverage": {
+          "raw": 615.27856,
+          "fmt": "615.28"
+        },
+        "exchangeTimezoneShortName": "EDT",
+        "epsCurrentYear": {
+          "raw": 4.54,
+          "fmt": "4.54"
+        },
+        "regularMarketPrice": {
+          "raw": 623.31,
+          "fmt": "623.31"
+        },
+        "marketState": "CLOSED",
+        "postMarketChange": {
+          "raw": -2.34003,
+          "fmt": "-2.34"
+        },
+        "forwardPE": {
+          "raw": 100.04976,
+          "fmt": "100.05"
+        },
+        "earningsTimestamp": {
+          "raw": 1619467200,
+          "fmt": "2021-04-26",
+          "longFmt": "2021-04-26T16:00"
+        },
+        "ask": {
+          "raw": 620.97,
+          "fmt": "620.97"
+        },
+        "epsTrailingTwelveMonths": {
+          "raw": 0.998,
+          "fmt": "1.00"
+        },
+        "bid": {
+          "raw": 621.25,
+          "fmt": "621.25"
+        },
+        "priceToBook": {
+          "raw": 26.078827,
+          "fmt": "26.08"
+        },
+        "triggerable": true,
+        "longName": "Tesla, Inc."
+      }
+    ],
+    "error": null
+  }
+}

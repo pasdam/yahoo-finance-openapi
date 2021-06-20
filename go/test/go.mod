@@ -1,4 +1,6 @@
-module github.com/pasdam/yahoo-finance-openapi
+module github.com/pasdam/yahoo-finance-openapi/go/test
+
+replace github.com/pasdam/yahoo-finance-openapi => ../../
 
 go 1.13
 
