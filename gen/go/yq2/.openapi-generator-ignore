@@ -1,0 +1,6 @@
+.openapi-generator/*
+api/*
+docs/*
+.gitignore
+.travis.yml
+*.sh

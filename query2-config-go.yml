@@ -1,0 +1,4 @@
+
+packageName: yq2
+isGoSubmodule: true
+enumClassPrefix: true
