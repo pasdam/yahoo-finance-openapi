@@ -25,7 +25,7 @@ jobs:
       run: make clean generate-go-sdk
 
     - name: Push changes and tag the latest version
-      uses: EndBug/add-and-commit@v7.3.0
+      uses: EndBug/add-and-commit@v7.4.0
       with:
         add: './gen/'
         message: "Generate clients for version ${{ env.API_VERSION }}"
