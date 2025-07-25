@@ -1,0 +1,40 @@
+name: Continuous integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  checks:
+    name: Unit test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+        with:
+          submodules: true
+
+      - uses: actions/setup-go@v5.3.0
+        with:
+          go-version-file: go.mod
+
+      - name: Coverage test
+        run: |
+          set -o pipefail
+          make go-coverage 2>&1 | tee coverage.log
+
+      - name: Generate summary
+        run: |
+          echo "# Coverage" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat coverage.log | grep "$(basename $PWD).*coverage:" | cut -d$'\t' -f2,4 | sed "s/\tcoverage//" | sed "s/ of statements//" >> $GITHUB_STEP_SUMMARY
+          cat coverage.log | grep "^total:" | sed "s/(statements)//" | tr -s "\t" | sed 's/\t/ /g' >> $GITHUB_STEP_SUMMARY
+
+      - uses: actions/upload-artifact@v4.6.0
+        with:
+          name: coverage.html
+          path: .build/coverage/coverage.html
+
